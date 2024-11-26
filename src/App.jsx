@@ -1,11 +1,10 @@
-import Footer from "./Components/Footer/Footer";
-import Navbar from "./Components/Navbar/Navbar";
+import { RouterProvider } from "react-router-dom";
+import router from "./Router/Index";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Footer />
+      <RouterProvider router={router} />
     </>
   );
 }
