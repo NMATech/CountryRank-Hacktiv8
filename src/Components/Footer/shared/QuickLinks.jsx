@@ -1,4 +1,4 @@
-const Navlink = () => {
+const QuickLinks = () => {
   const menus = [
     {
       title: "Home",
@@ -15,21 +15,19 @@ const Navlink = () => {
   ];
 
   return (
-    <nav>
-      <ul className="w-max hidden md:flex items-center gap-3 text-xl font-thin">
+    <div className="w-max mx-auto md:mx-0 mt-0 md:mt-[30px]">
+      <h1 className="font-semibold text-xl">Quick Links</h1>
+      <ul className="text-white/80 mt-5">
         {menus.map((menu, index) => {
           return (
-            <li
-              key={index}
-              className="hover:border-b-2 hover:border-main-higlight easy-in-out"
-            >
-              <a href="">{menu.title}</a>
+            <li key={index}>
+              <a href={menu.link}>{menu.title}</a>
             </li>
           );
         })}
       </ul>
-    </nav>
+    </div>
   );
 };
 
-export default Navlink;
+export default QuickLinks;

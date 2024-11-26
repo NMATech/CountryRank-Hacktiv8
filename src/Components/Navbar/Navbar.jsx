@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-main-primary w-full flex justify-between items-center py-3 px-5 text-white">
+    <head className="bg-main-primary w-full flex justify-between items-center py-3 px-5 text-white">
       <div className="flex justify-center items-center gap-3">
         <div>
           <img src={logo} alt="" className="w-[50px]" />
@@ -21,9 +21,9 @@ const Navbar = () => {
       </div>
 
       <Navlink />
-      <Btn_Mobile isClicked={isClicked} clicked={clicked} />
       {isClicked && <Menu_Mobile />}
-    </div>
+      <Btn_Mobile isClicked={isClicked} clicked={clicked} />
+    </head>
   );
 };
 
