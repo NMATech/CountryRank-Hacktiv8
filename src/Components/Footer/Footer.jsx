@@ -5,7 +5,7 @@ import QuickLinks from "./shared/QuickLinks";
 
 const Footer = () => {
   return (
-    <footer className="bg-main-primary w-full text-white mt-3 px-[30px] md:px-[50px] pt-[30px] md:pt-[50px] pb-[20px]">
+    <footer className="bg-main-primary w-full text-white px-[30px] md:px-[50px] pt-[30px] md:pt-[50px] pb-[20px]">
       <section className="flex flex-col md:flex-row gap-[40px]">
         <div className="w-full md:w-[40%] flex flex-col justify-center items-center md:justify-start md:items-start gap-3 ">
           <img src={logo} alt="" className="w-[250px] md:w-[300px]" />

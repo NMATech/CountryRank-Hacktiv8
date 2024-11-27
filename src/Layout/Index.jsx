@@ -7,7 +7,7 @@ const Index = () => {
     <>
       <Navbar />
 
-      <main>
+      <main className="w-full bg-[#333]">
         <Outlet />
       </main>
 
