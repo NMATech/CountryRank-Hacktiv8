@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        alatsi: ["Alatsi", "sans-serif"],
+      },
       colors: {
         main: {
           primary: "#2C3E50",

@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Alatsi';
+  src: url('./assets/font/Alatsi-Regular.ttf') format('truetype'); /* Format TTF */
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
