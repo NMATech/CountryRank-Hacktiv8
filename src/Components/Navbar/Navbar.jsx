@@ -17,7 +17,7 @@ const Navbar = () => {
         <div>
           <img src={logo} alt="" className="w-[50px]" />
         </div>
-        <h1 className="text-2xl">Country Rank</h1>
+        <h1 className="text-2xl font-alatsi">COUNTRY RANK</h1>
       </div>
 
       <Navlink />
