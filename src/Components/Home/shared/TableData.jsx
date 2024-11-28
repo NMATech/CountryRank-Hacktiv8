@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
+import displayAll from "../../../Store/actions/CountryRankActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const TableData = () => {
   const [datas, setDatas] = useState(null);
+  const countries = useSelector((state) => state.countryRank.data);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(displayAll());
+  }, []);
+
+  // console.log(countries); tes debugging data fetching
 
   useEffect(() => {
     const fetchData = async () => {
