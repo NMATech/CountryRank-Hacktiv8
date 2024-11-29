@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import displayAll from "../../../Store/actions/CountryRankActions";
+import actions from "../../../Store/actions/CountryRankActions";
 import { useDispatch, useSelector } from "react-redux";
 
 const TableData = () => {
@@ -8,7 +8,7 @@ const TableData = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(displayAll());
+    dispatch(actions.displayAll());
   }, []);
 
   // console.log(countries); tes debugging data fetching
