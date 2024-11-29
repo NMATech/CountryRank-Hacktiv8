@@ -4,7 +4,7 @@ const initialState = {
 
 const countryRankReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "DISPLAY_ALL":
+    case "SET_DATAS":
       return { ...state, data: action.payload };
     default:
       return state;
