@@ -2,32 +2,26 @@ import { useEffect, useState } from "react";
 import actions from "../../../Store/actions/CountryRankActions";
 import { useDispatch, useSelector } from "react-redux";
 
-const TableData = () => {
-  const [datas, setDatas] = useState(null);
-  const countries = useSelector((state) => state.countryRank.data);
+const TableData = ({ currentItems }) => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(actions.displayAll());
-  }, []);
 
   // console.log(countries); tes debugging data fetching
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://restcountries.com/v3.1/name/Indonesia"
-        );
-        const data = await response.json();
-        setDatas(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "https://restcountries.com/v3.1/name/Indonesia"
+  //       );
+  //       const data = await response.json();
+  //       setDatas(data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   // Fungsi untuk format population
   const formatPopulation = (population) => {
@@ -43,7 +37,7 @@ const TableData = () => {
   };
 
   return (
-    <div className="w-[80%]">
+    <div className="w-[95%]">
       <table className="w-full text-left">
         <thead className="border-b border-white">
           <tr>
@@ -57,29 +51,28 @@ const TableData = () => {
           </tr>
         </thead>
         <tbody>
-          {datas ? (
-            <tr>
-              <td className="py-2">1</td>
-              <td className="py-2">
-                <img
-                  src={datas[0].flags.png}
-                  alt={`Flag of ${datas[0].name.common}`}
-                  className="w-12"
-                />
-              </td>
-              <td className="py-2">{datas[0].cca2}</td>
-              <td className="py-2">{datas[0].name.common}</td>
-              <td className="py-2">{formatPopulation(datas[0].population)}</td>
-              <td className="py-2">{datas[0].area.toLocaleString()} km²</td>
-              <td className="py-2">{datas[0].region}</td>
-            </tr>
-          ) : (
-            <tr>
-              <td colSpan="7" className="text-center py-4">
-                Loading...
-              </td>
-            </tr>
-          )}
+          {currentItems &&
+            currentItems.map((contry, index) => {
+              return (
+                <tr key={index}>
+                  <td className="py-2">{index + 1}</td>
+                  <td className="py-2">
+                    <img
+                      src={contry.flags.png}
+                      alt={`Flag of ${contry.name.common}`}
+                      className="w-12"
+                    />
+                  </td>
+                  <td className="py-2">{contry.cca2}</td>
+                  <td className="py-2">{contry.name.common}</td>
+                  <td className="py-2">
+                    {formatPopulation(contry.population)}
+                  </td>
+                  <td className="py-2">{contry.area.toLocaleString()} km²</td>
+                  <td className="py-2">{contry.region}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>

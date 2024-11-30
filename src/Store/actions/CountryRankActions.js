@@ -37,4 +37,12 @@ export const searchByName = (name) => {
   };
 };
 
+export const sortByPopulation = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "SORT_BY_POPULATION",
+    });
+  };
+};
+
 export default { displayAll, searchByRegion, searchByName };

@@ -7,10 +7,10 @@ const Home = () => {
       <Hero />
 
       <div className="w-full h-max flex justify-center items-center">
-        <TableRank />
+        <TableRank itemsPerPage={10} />
       </div>
 
-      <div className="h-[330px]"></div>
+      <div className="h-[670px]"></div>
     </>
   );
 };
