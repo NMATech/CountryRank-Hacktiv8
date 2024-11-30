@@ -5,8 +5,10 @@ import TableData from "./shared/TableData";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Store/actions/CountryRankActions";
 import ReactPaginate from "react-paginate";
+import MobileTableRank from "./shared/MobileTableRank";
 
 const TableRank = ({ itemsPerPage }) => {
+  const innerWidthBrowser = window.innerWidth;
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countryRank.data); // data countries
   const [itemOffSet, setItemOffSet] = useState(0);
@@ -36,11 +38,16 @@ const TableRank = ({ itemsPerPage }) => {
   };
 
   return (
-    <div className="absolute w-[95%] mt-[37em] mx-auto bg-main-accent/70 text-white p-[30px] rounded-xl">
-      <HeadTRank />
+    <div
+      className={`absolute w-[95%] ${
+        countries.length >= 10 ? "mt-[60em] md:mt-[37em]" : "mt-[23em]"
+      } mx-auto bg-main-accent/70 text-white p-[20px] md:p-[30px] rounded-xl`}
+    >
+      {innerWidthBrowser > 768 ? <HeadTRank /> : null}
+      <MobileTableRank />
 
       <div className="mt-[20px] flex gap-3">
-        <FilterTable />
+        {innerWidthBrowser > 768 ? <FilterTable /> : null}
         <div className="w-full flex flex-col justify-center items-center gap-3">
           <TableData currentItems={currentItems} itemOffSet={itemOffSet} />
           <ReactPaginate
@@ -51,12 +58,12 @@ const TableRank = ({ itemsPerPage }) => {
             pageRangeDisplayed={5}
             pageCount={pageCount}
             renderOnZeroPageCount={null}
-            containerClassName="flex flex-row justify-center items-center gap-3 mt-4"
-            pageClassName=" text-black py-1 px-3 rounded-md cursor-pointer"
+            containerClassName="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mt-4 overflow-x-auto"
+            pageClassName="py-1 px-2 sm:px-3 rounded-md cursor-pointer text-sm sm:text-base hover:bg-gray-300"
             pageLinkClassName="no-underline"
-            previousClassName="bg-gray-700 text-white py-1 px-3 rounded-md cursor-pointer"
-            nextClassName="bg-gray-700 text-white py-1 px-3 rounded-md cursor-pointer"
-            activeClassName="bg-white text-black font-bold border border-blue-500"
+            previousClassName="bg-gray-700 text-white py-1 px-3 rounded-md cursor-pointer text-sm sm:text-base"
+            nextClassName="bg-gray-700 text-white py-1 px-3 rounded-md cursor-pointer text-sm sm:text-base"
+            activeClassName="bg-blue-500 text-white font-bold border border-blue-700"
           />
         </div>
       </div>

@@ -63,7 +63,7 @@ const FilterTable = ({ onChangeSort }) => {
   };
 
   return (
-    <div className="w-[30%] text-white rounded-md space-y-4">
+    <div className="w-full md:w-[30%] text-white rounded-md space-y-4">
       {/* Sort */}
       <div>
         <h2 className="text-lg font-semibold mb-2">Sort by</h2>

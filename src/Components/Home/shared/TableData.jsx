@@ -13,8 +13,8 @@ const TableData = ({ currentItems, itemOffSet }) => {
   };
 
   return (
-    <div className="w-[95%]">
-      <table className="w-full text-left">
+    <div className="w-full md:w-[95%] overflow-x-auto">
+      <table className="w-full border-collapse text-left">
         <thead className="border-b border-white">
           <tr>
             <th className="py-2">No</th>

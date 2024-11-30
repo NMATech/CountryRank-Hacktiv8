@@ -1,7 +1,10 @@
+import { useSelector } from "react-redux";
 import Hero from "../Components/Home/Hero";
 import TableRank from "../Components/Home/TableRank";
 
 const Home = () => {
+  const countries = useSelector((state) => state.countryRank.data);
+
   return (
     <>
       <Hero />
@@ -10,7 +13,11 @@ const Home = () => {
         <TableRank itemsPerPage={10} />
       </div>
 
-      <div className="h-[670px]"></div>
+      <div
+        className={`${
+          countries.length >= 10 ? "h-[1030px] md:h-[670px]" : "h-[440px]"
+        }`}
+      ></div>
     </>
   );
 };

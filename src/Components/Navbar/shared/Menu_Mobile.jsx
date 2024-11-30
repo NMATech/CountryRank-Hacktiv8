@@ -16,7 +16,7 @@ const Menu_Mobile = () => {
 
   return (
     <nav>
-      <ul className="fixed bg-main-primary w-[200px] h-max flex flex-col items-center top-[3.5em] right-0 gap-3 text-xl font-thin p-3 easy-in-out">
+      <ul className="absolute bg-main-primary w-[200px] h-max flex flex-col items-center top-[3.5em] right-0 gap-3 text-xl font-thin p-3 easy-in-out z-50">
         {menus.map((menu, index) => {
           return (
             <li

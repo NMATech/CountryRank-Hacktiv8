@@ -18,11 +18,11 @@ const HeadTRank = () => {
 
   return (
     <div className="flex justify-between">
-      <h1 className="text-xl">Found {countries.length} Data</h1>
+      <h1 className="text-lg md:text-xl">Found {countries.length} Data</h1>
 
-      <div className="bg-modern-dark_accent w-[15em] flex items-center p-1 rounded-lg gap-3">
+      <div className="bg-modern-dark_accent w-[11em] md:w-[15em] flex ps-2 items-center p-1 rounded-lg gap-3">
         <button onClick={handleSearch}>
-          <IoSearchSharp className="text-[25px] text-white/60" />
+          <IoSearchSharp className="text-[20px] md:text-[25px] text-white/60" />
         </button>
         <input
           type="text"
@@ -33,7 +33,7 @@ const HeadTRank = () => {
               handleSearch();
             }
           }}
-          placeholder="Search by Name, Region"
+          placeholder="Search by Name"
           className="bg-transparent focus:outline-none placeholder:text-white/60 text-white/80"
         />
       </div>
