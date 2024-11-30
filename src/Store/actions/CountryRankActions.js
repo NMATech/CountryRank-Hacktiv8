@@ -27,9 +27,10 @@ export const searchByRegion = (region) => {
     fetch(`https://restcountries.com/v3.1/region/${region}`)
       .then((response) => response.json())
       .then((datas) => {
+        const sortedData = datas.sort((a, b) => b.population - a.population);
         dispatch({
           type: "SET_DATAS",
-          payload: datas,
+          payload: sortedData,
         });
       });
   };

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import actions from "../../../Store/actions/CountryRankActions";
 
-const FilterTable = ({ onFilterChange, onChangeSort }) => {
+const FilterTable = ({ onChangeSort }) => {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
+  const dispatch = useDispatch();
 
   // Daftar filter region
   const regions = [
@@ -14,10 +17,42 @@ const FilterTable = ({ onFilterChange, onChangeSort }) => {
     "Oceania",
   ];
 
+  // keadaan jika filter sort by diselect
+  useEffect(() => {
+    if (selectedSort) {
+      const fetchData = async () => {
+        await dispatch(actions.displayAll(selectedSort));
+      };
+
+      fetchData();
+    }
+  }, [selectedSort]);
+
+  // keadaan jika filter select by region
+  useEffect(() => {
+    if (selectedRegion) {
+      const fetchData = async () => {
+        await dispatch(actions.searchByRegion(selectedRegion));
+      };
+
+      fetchData();
+    } else if (selectedRegion === "") {
+      // keadaan jika button select by region di nonaktifkan kembali
+      const fetchData = async () => {
+        await dispatch(actions.displayAll("population"));
+      };
+
+      fetchData();
+    }
+  }, [selectedRegion]);
+
   // Handler perubahan region
   const handleRegionChange = (region) => {
-    setSelectedRegion(region);
-    onFilterChange(region); // Kirim data ke parent
+    if (selectedRegion === region) {
+      setSelectedRegion("");
+    } else {
+      setSelectedRegion(region);
+    }
   };
 
   // Handler perubahan sort

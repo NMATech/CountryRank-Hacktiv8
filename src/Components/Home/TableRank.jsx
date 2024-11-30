@@ -15,7 +15,6 @@ const TableRank = ({ itemsPerPage }) => {
   const pageCount = countries?.length
     ? Math.ceil(countries.length / itemsPerPage)
     : 0;
-  const [selectedSort, setSelectedSort] = useState(null);
 
   // console.log(countries); aktifkan ini untuk melihat data
 
@@ -26,16 +25,6 @@ const TableRank = ({ itemsPerPage }) => {
 
     fetchData();
   }, []);
-
-  useEffect(() => {
-    if (selectedSort) {
-      const fetchData = async () => {
-        await dispatch(actions.displayAll(selectedSort));
-      };
-
-      fetchData();
-    }
-  }, [selectedSort]);
 
   // handle untuk pindah pagenation
   const handlePageClick = (event) => {
@@ -51,7 +40,7 @@ const TableRank = ({ itemsPerPage }) => {
       <HeadTRank />
 
       <div className="mt-[20px] flex gap-3">
-        <FilterTable onChangeSort={setSelectedSort} />
+        <FilterTable />
         <div className="w-full flex flex-col justify-center items-center gap-3">
           <TableData currentItems={currentItems} itemOffSet={itemOffSet} />
           <ReactPaginate
