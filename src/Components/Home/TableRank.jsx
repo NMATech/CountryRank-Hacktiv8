@@ -8,23 +8,34 @@ import ReactPaginate from "react-paginate";
 
 const TableRank = ({ itemsPerPage }) => {
   const dispatch = useDispatch();
-  const countries = useSelector((state) => state.countryRank.data);
+  const countries = useSelector((state) => state.countryRank.data); // data countries
   const [itemOffSet, setItemOffSet] = useState(0);
   const endOffSet = itemOffSet + itemsPerPage;
   const currentItems = countries?.slice(itemOffSet, endOffSet) || [];
   const pageCount = countries?.length
     ? Math.ceil(countries.length / itemsPerPage)
     : 0;
+  const [selectedSort, setSelectedSort] = useState(null);
 
   // console.log(countries); aktifkan ini untuk melihat data
 
   useEffect(() => {
     const fetchData = async () => {
-      await dispatch(actions.displayAll());
+      await dispatch(actions.displayAll("population"));
     };
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (selectedSort) {
+      const fetchData = async () => {
+        await dispatch(actions.displayAll(selectedSort));
+      };
+
+      fetchData();
+    }
+  }, [selectedSort]);
 
   // handle untuk pindah pagenation
   const handlePageClick = (event) => {
@@ -40,7 +51,7 @@ const TableRank = ({ itemsPerPage }) => {
       <HeadTRank />
 
       <div className="mt-[20px] flex gap-3">
-        <FilterTable />
+        <FilterTable onChangeSort={setSelectedSort} />
         <div className="w-full flex flex-col justify-center items-center gap-3">
           <TableData currentItems={currentItems} itemOffSet={itemOffSet} />
           <ReactPaginate

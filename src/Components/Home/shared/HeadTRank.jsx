@@ -1,9 +1,12 @@
 import { IoSearchSharp } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const HeadTRank = () => {
+  const countries = useSelector((state) => state.countryRank.data);
+
   return (
     <div className="flex justify-between">
-      <h1 className="text-xl">Found 250 Data</h1>
+      <h1 className="text-xl">Found {countries.length} Data</h1>
 
       <div className="bg-modern-dark_accent w-[15em] flex items-center p-1 rounded-lg gap-3">
         <IoSearchSharp className="text-[25px] text-white/60" />

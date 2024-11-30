@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FilterTable = ({ onFilterChange, onSortChange }) => {
+const FilterTable = ({ onFilterChange, onChangeSort }) => {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [selectedSort, setSelectedSort] = useState("");
 
@@ -24,7 +24,7 @@ const FilterTable = ({ onFilterChange, onSortChange }) => {
   const handleSortChange = (event) => {
     const value = event.target.value;
     setSelectedSort(value);
-    onSortChange(value); // Kirim data ke parent
+    onChangeSort(value); // Kirim data ke parent
   };
 
   return (

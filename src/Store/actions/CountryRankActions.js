@@ -1,9 +1,19 @@
-export const displayAll = () => {
+export const displayAll = (sortBy) => {
   return (dispatch) => {
     fetch("https://restcountries.com/v3.1/all")
       .then((response) => response.json())
       .then((datas) => {
-        const sortedData = datas.sort((a, b) => b.population - a.population);
+        let sortedData;
+        switch (sortBy) {
+          case "population":
+            sortedData = datas.sort((a, b) => b.population - a.population);
+            break;
+          case "area":
+            sortedData = datas.sort((a, b) => b.area - a.area);
+            break;
+          default:
+            break;
+        }
         dispatch({
           type: "SET_DATAS",
           payload: sortedData,
