@@ -16,10 +16,17 @@ const TableRank = ({ itemsPerPage }) => {
     ? Math.ceil(countries.length / itemsPerPage)
     : 0;
 
+  // console.log(countries); aktifkan ini untuk melihat data
+
   useEffect(() => {
-    dispatch(actions.displayAll());
+    const fetchData = async () => {
+      await dispatch(actions.displayAll());
+    };
+
+    fetchData();
   }, []);
 
+  // handle untuk pindah pagenation
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % countries.length;
     console.log(
@@ -35,7 +42,7 @@ const TableRank = ({ itemsPerPage }) => {
       <div className="mt-[20px] flex gap-3">
         <FilterTable />
         <div className="w-full flex flex-col justify-center items-center gap-3">
-          <TableData currentItems={currentItems} />
+          <TableData currentItems={currentItems} itemOffSet={itemOffSet} />
           <ReactPaginate
             breakLabel="..."
             nextLabel="next"

@@ -3,9 +3,10 @@ export const displayAll = () => {
     fetch("https://restcountries.com/v3.1/all")
       .then((response) => response.json())
       .then((datas) => {
+        const sortedData = datas.sort((a, b) => b.population - a.population);
         dispatch({
           type: "SET_DATAS",
-          payload: datas,
+          payload: sortedData,
         });
       });
   };
@@ -34,14 +35,6 @@ export const searchByName = (name) => {
           payload: datas,
         });
       });
-  };
-};
-
-export const sortByPopulation = () => {
-  return (dispatch) => {
-    dispatch({
-      type: "SORT_BY_POPULATION",
-    });
   };
 };
 

@@ -1,28 +1,4 @@
-import { useEffect, useState } from "react";
-import actions from "../../../Store/actions/CountryRankActions";
-import { useDispatch, useSelector } from "react-redux";
-
-const TableData = ({ currentItems }) => {
-  const dispatch = useDispatch();
-
-  // console.log(countries); tes debugging data fetching
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         "https://restcountries.com/v3.1/name/Indonesia"
-  //       );
-  //       const data = await response.json();
-  //       setDatas(data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
+const TableData = ({ currentItems, itemOffSet }) => {
   // Fungsi untuk format population
   const formatPopulation = (population) => {
     if (population >= 1_000_000_000) {
@@ -52,24 +28,24 @@ const TableData = ({ currentItems }) => {
         </thead>
         <tbody>
           {currentItems &&
-            currentItems.map((contry, index) => {
+            currentItems.map((country, index) => {
               return (
-                <tr key={index}>
-                  <td className="py-2">{index + 1}</td>
+                <tr key={country.cca3}>
+                  <td className="py-2">{itemOffSet + index + 1}</td>
                   <td className="py-2">
                     <img
-                      src={contry.flags.png}
-                      alt={`Flag of ${contry.name.common}`}
+                      src={country.flags.png}
+                      alt={`Flag of ${country.name.common}`}
                       className="w-12"
                     />
                   </td>
-                  <td className="py-2">{contry.cca2}</td>
-                  <td className="py-2">{contry.name.common}</td>
+                  <td className="py-2">{country.cca2}</td>
+                  <td className="py-2">{country.name.common}</td>
                   <td className="py-2">
-                    {formatPopulation(contry.population)}
+                    {formatPopulation(country.population)}
                   </td>
-                  <td className="py-2">{contry.area.toLocaleString()} km²</td>
-                  <td className="py-2">{contry.region}</td>
+                  <td className="py-2">{country.area.toLocaleString()} km²</td>
+                  <td className="py-2">{country.region}</td>
                 </tr>
               );
             })}
