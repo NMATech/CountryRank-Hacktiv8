@@ -6,7 +6,7 @@ const Navlink = () => {
     },
     {
       title: "Compare Country",
-      link: "/",
+      link: "/compare",
     },
     {
       title: "News & Article",
@@ -23,7 +23,7 @@ const Navlink = () => {
               key={index}
               className="hover:border-b-2 hover:border-main-higlight easy-in-out"
             >
-              <a href="">{menu.title}</a>
+              <a href={menu.link}>{menu.title}</a>
             </li>
           );
         })}

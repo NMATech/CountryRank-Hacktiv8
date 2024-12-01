@@ -6,7 +6,7 @@ const Menu_Mobile = () => {
     },
     {
       title: "Compare Country",
-      link: "/",
+      link: "/compare",
     },
     {
       title: "News & Article",

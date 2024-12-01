@@ -1,7 +1,9 @@
+import HeroCompareCountry from "../Components/CompareCountry/HeroCompareCountry";
+
 const Compare = () => {
   return (
     <div>
-      <h1>Compare</h1>
+      <HeroCompareCountry />
     </div>
   );
 };

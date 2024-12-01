@@ -6,7 +6,7 @@ const QuickLinks = () => {
     },
     {
       title: "Compare Country",
-      link: "/",
+      link: "/compare",
     },
     {
       title: "News & Article",
