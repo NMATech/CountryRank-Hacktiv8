@@ -3,9 +3,9 @@ import Select from "react-select";
 const SelectForm = ({ countries, selectedOption, handleChange }) => {
   return (
     <Select
-      options={countries} //
-      value={selectedOption} //
-      onChange={handleChange} //
+      options={countries} // option select
+      value={selectedOption} // option selected
+      onChange={handleChange} // handle ketika diselect
       placeholder="Select a country..."
       isSearchable={true} //
       className="text-black"

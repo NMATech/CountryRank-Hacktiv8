@@ -10,10 +10,10 @@ const FormCompare = () => {
   const [selectedOptionB, setSelectedOptionB] = useState(null);
 
   const handleChangeA = (selected) => {
-    setSelectedOptionA(selected.label); // Gunakan nama negara
+    setSelectedOptionA(selected);
   };
   const handleChangeB = (selected) => {
-    setSelectedOptionB(selected.label); // Gunakan nama negara
+    setSelectedOptionB(selected);
   };
 
   // Fetch data opsi negara
@@ -46,7 +46,7 @@ const FormCompare = () => {
         console.log(err.message);
       }
     };
-    fetchCountry1(selectedOptionA);
+    fetchCountry1(selectedOptionA.label);
   }, [selectedOptionA]);
 
   // Fetch data negara B
@@ -66,12 +66,12 @@ const FormCompare = () => {
         console.log(err.message);
       }
     };
-    fetchCountry2(selectedOptionB);
+    fetchCountry2(selectedOptionB.label);
   }, [selectedOptionB]);
 
   return (
     <div className="w-[80%] mx-auto flex flex-col items-center">
-      <div className="w-full flex justify-around items-center">
+      <div className="w-full flex flex-col md:flex-row justify-around items-center">
         <CountryFlag
           name={countryA?.name?.common}
           image={countryA?.flags?.png}
@@ -97,7 +97,7 @@ const FormCompare = () => {
             handleChange={handleChangeB}
           />
         </div>
-        <button className="w-[20%] mx-auto bg-white text-[#333] rounded-xl py-2">
+        <button className="w-full md:w-[20%] mx-auto bg-white text-[#333] rounded-xl py-2">
           Compare
         </button>
       </div>
