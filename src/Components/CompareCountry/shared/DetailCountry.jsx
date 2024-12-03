@@ -1,6 +1,6 @@
 const DetailCountry = ({ country }) => {
   return (
-    <div className="w-[50%] bg-main-accent flex flex-col p-4 rounded-lg shadow-md">
+    <div className="w-full md:w-[50%] bg-main-accent flex flex-col p-4 rounded-lg shadow-md">
       <h1 className="text-[20px] md:text-[30px] text-modern-text font-alatsi text-center">
         {country?.name?.common || "Country"}
       </h1>
