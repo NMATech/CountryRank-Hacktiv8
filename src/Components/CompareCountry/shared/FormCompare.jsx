@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import CountryFlag from "./CountryFlag";
 import SelectForm from "./SelectForm";
 
-const FormCompare = () => {
-  const [countryA, setCountryA] = useState([]);
-  const [countryB, setCountryB] = useState([]);
+const FormCompare = ({
+  countryA,
+  countryB,
+  setCountryA,
+  setCountryB,
+  setIsCompareClicked,
+}) => {
   const [countries, setCountries] = useState([]);
   const [selectedOptionA, setSelectedOptionA] = useState(null);
   const [selectedOptionB, setSelectedOptionB] = useState(null);
@@ -97,7 +101,12 @@ const FormCompare = () => {
             handleChange={handleChangeB}
           />
         </div>
-        <button className="w-full md:w-[20%] mx-auto bg-white text-[#333] rounded-xl py-2">
+        <button
+          onClick={() => {
+            setIsCompareClicked((prev) => !prev);
+          }}
+          className="w-full md:w-[20%] mx-auto bg-white text-[#333] rounded-xl py-2"
+        >
           Compare
         </button>
       </div>

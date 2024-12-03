@@ -1,7 +1,13 @@
 import image from "../../assets/img/bg-hero.jpg";
 import FormCompare from "./shared/FormCompare";
 
-const HeroCompareCountry = () => {
+const HeroCompareCountry = ({
+  countryA,
+  countryB,
+  setCountryA,
+  setCountryB,
+  setIsCompareClicked,
+}) => {
   return (
     <div className="relative">
       <div>
@@ -16,7 +22,13 @@ const HeroCompareCountry = () => {
           Country Comparison
         </h1>
 
-        <FormCompare />
+        <FormCompare
+          countryA={countryA}
+          countryB={countryB}
+          setCountryA={setCountryA}
+          setCountryB={setCountryB}
+          setIsCompareClicked={setIsCompareClicked}
+        />
       </div>
     </div>
   );
