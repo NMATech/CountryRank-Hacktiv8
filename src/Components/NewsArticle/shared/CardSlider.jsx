@@ -1,10 +1,10 @@
-const CardSlider = () => {
+const CardSlider = ({ data }) => {
   return (
     <div className="w-full h-max relative">
       {/* Gambar utama */}
       <div>
         <img
-          src="https://static01.nyt.com/images/2024/11/27/opinion/27opinions-friedman/27opinions-friedman-articleLarge.jpg"
+          src={`https://static01.nyt.com/${data?.multimedia?.[0]?.url}`}
           alt="Fashion Trends"
           className="w-full h-[400px] bg-center object-cover"
         />
@@ -18,13 +18,13 @@ const CardSlider = () => {
 
         {/* Judul berita */}
         <h1 className="text-[20px] md:text-[30px] font-bold">
-          Fashion Trends and Li Edelkoort the Culture Shock Special Report
+          {data?.headline?.main}
         </h1>
 
         {/* Detail metadata */}
         <div className="flex text-sm text-gray-300 mt-2 gap-4">
-          <span>BY JANE</span>
-          <span>12.04.2023</span>
+          <span>{data?.byline?.original}</span>
+          <span>{new Date(data?.pub_date).toLocaleDateString()}</span>
         </div>
       </div>
     </div>
