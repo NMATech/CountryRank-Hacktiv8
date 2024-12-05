@@ -10,7 +10,7 @@ const Menu_Mobile = () => {
     },
     {
       title: "News & Article",
-      link: "/",
+      link: "/newsarticle",
     },
   ];
 

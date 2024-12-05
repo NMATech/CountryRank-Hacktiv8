@@ -10,7 +10,7 @@ const Navlink = () => {
     },
     {
       title: "News & Article",
-      link: "/",
+      link: "/newsarticle",
     },
   ];
 

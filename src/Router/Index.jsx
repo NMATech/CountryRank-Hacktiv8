@@ -3,6 +3,7 @@ import Index from "../Layout/Index";
 
 import Home from "../Pages/Home";
 import Compare from "../Pages/Compare";
+import NewsArticle from "../Pages/NewsArticle";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/compare",
         element: <Compare />,
+      },
+      {
+        path: "/newsarticle",
+        element: <NewsArticle />,
       },
     ],
   },
