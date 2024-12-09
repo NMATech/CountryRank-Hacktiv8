@@ -1,9 +1,9 @@
 const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
-const displayPopularNews = () => {
+const displayPopularNews = (query, tipe) => {
   return (dispatch) => {
     fetch(
-      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=Peace&api-key=${apiKey}`
+      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=${apiKey}`
     )
       .then((res) => res.json())
       .then((datas) => {
@@ -13,7 +13,7 @@ const displayPopularNews = () => {
           );
 
           dispatch({
-            type: "ADD_TO_POPULARNEWS",
+            type: tipe,
             payload: filteredData,
           });
         }

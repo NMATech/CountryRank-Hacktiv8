@@ -1,14 +1,16 @@
 import { useState } from "react";
 import BelowCard from "./shared/BelowCard";
 import CardNews from "./shared/CardNews";
-import CardSlider from "./shared/CardSlider";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import displayPopularNews from "../../Store/actions/NewsActions";
+import SliderNews from "./shared/SliderNews";
 
 const SectionNews = () => {
   const newsData = useSelector((state) => state.newsArticle.popularNews);
-  const newsSlice = newsData.slice(1, 6);
+  const latestNews = useSelector((state) => state.newsArticle.latestNews);
+  const newsSliceSlider = newsData.slice(0, 3);
+  const newsSliceBottom = newsData.slice(4, 11);
   const [widthBrowser, setWidthBrowser] = useState(window.innerWidth);
   const dispatch = useDispatch();
 
@@ -23,23 +25,30 @@ const SectionNews = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(displayPopularNews());
+    dispatch(displayPopularNews("Peace", "ADD_TO_POPULARNEWS"));
+    dispatch(displayPopularNews("Calm", "ADD_TO_LATESTNEWS"));
   }, []);
 
   return (
     <div className="flex flex-col lg:flex-row gap-5 py-1 md:py-3 px-[10px] md:px-[30px]">
       <div className="w-full lg:w-[60%] flex flex-col gap-5">
-        <CardSlider data={newsData[0] || []} />
+        {/* Slider news */}
+        <SliderNews newsData={newsSliceSlider} />
 
-        {widthBrowser > 1024 && widthBrowser <= 1440 && <BelowCard />}
+        {/* BelowCard only shows for laptop and ipad width */}
+        {widthBrowser > 1025 && widthBrowser <= 1440 && (
+          <BelowCard data={latestNews || []} />
+        )}
       </div>
 
+      {/* This shows for mobile view */}
       <div className="flex lg:hidden">
-        <BelowCard />
+        <BelowCard data={newsSliceBottom || []} />
       </div>
 
+      {/* Card news side only shows for laptop view */}
       <div className="hidden lg:flex flex-col gap-3">
-        {newsSlice.map((data, index) => {
+        {newsSliceBottom.map((data, index) => {
           return <CardNews data={data} key={index} />;
         })}
       </div>
