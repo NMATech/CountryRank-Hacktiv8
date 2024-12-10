@@ -2,8 +2,7 @@ import { useState } from "react";
 import BelowCard from "./shared/BelowCard";
 import CardNews from "./shared/CardNews";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import displayPopularNews from "../../Store/actions/NewsActions";
+import { useSelector } from "react-redux";
 import SliderNews from "./shared/SliderNews";
 
 const SectionNews = () => {
@@ -12,7 +11,6 @@ const SectionNews = () => {
   const newsSliceSlider = newsData.slice(0, 3);
   const newsSliceBottom = newsData.slice(4, 11);
   const [widthBrowser, setWidthBrowser] = useState(window.innerWidth);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleResize = () => setWidthBrowser(window.innerWidth);
@@ -22,11 +20,6 @@ const SectionNews = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-
-  useEffect(() => {
-    dispatch(displayPopularNews("Peace", "ADD_TO_POPULARNEWS"));
-    dispatch(displayPopularNews("Calm", "ADD_TO_LATESTNEWS"));
   }, []);
 
   return (
