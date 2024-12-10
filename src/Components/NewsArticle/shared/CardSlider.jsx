@@ -1,4 +1,11 @@
 const CardSlider = ({ data }) => {
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + "...";
+    }
+    return text;
+  };
+
   return (
     <div className="w-full h-max relative">
       {/* Gambar utama */}
@@ -20,6 +27,8 @@ const CardSlider = ({ data }) => {
         <h1 className="text-[20px] md:text-[30px] font-bold">
           {data?.headline?.main}
         </h1>
+
+        <p>{truncateText(data?.abstract, 90)}</p>
 
         {/* Detail metadata */}
         <div className="flex text-sm text-gray-300 mt-2 gap-4">

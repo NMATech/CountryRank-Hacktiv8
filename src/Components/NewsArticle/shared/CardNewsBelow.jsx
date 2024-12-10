@@ -1,4 +1,11 @@
 const CardNewsBelow = ({ news }) => {
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + "...";
+    }
+    return text;
+  };
+
   return (
     <div className="flex-shrink-0 w-[80%] sm:w-[60%] md:w-[48%] lg:w-[49%] flex flex-col gap-3 text-white">
       {/* Gambar dengan label */}
@@ -19,6 +26,8 @@ const CardNewsBelow = ({ news }) => {
         <h1 className="text-sm md:text-lg font-bold line-clamp-2">
           {news?.headline?.main}
         </h1>
+
+        <p>{truncateText(news?.abstract, 90)}</p>
 
         {/* Metadata berita */}
         <div className="flex text-xs md:text-sm text-gray-300 mt-2 gap-4">
