@@ -1,7 +1,6 @@
 const initialState = {
   popularNews: [],
   latestNews: [],
-  techNews: [],
 };
 
 const NewsReducer = (state = initialState, action) => {
@@ -12,11 +11,6 @@ const NewsReducer = (state = initialState, action) => {
         popularNews: action.payload,
       };
     case "ADD_TO_LATESTNEWS":
-      return {
-        ...state,
-        latestNews: action.payload,
-      };
-    case "ADD_TO_TECHNEWS":
       return {
         ...state,
         latestNews: action.payload,
