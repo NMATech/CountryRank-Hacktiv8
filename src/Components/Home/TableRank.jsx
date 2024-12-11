@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Store/actions/CountryRankActions";
 import ReactPaginate from "react-paginate";
 import MobileTableRank from "./shared/MobileTableRank";
+import { motion } from "framer-motion";
 
 const TableRank = ({ itemsPerPage }) => {
   const innerWidthBrowser = window.innerWidth;
@@ -38,7 +39,11 @@ const TableRank = ({ itemsPerPage }) => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 2 }}
+      viewport={{ once: true }}
       className={`absolute w-[95%] ${
         countries.length >= 10 ? "mt-[60em] md:mt-[37em]" : "mt-[23em]"
       } mx-auto bg-main-accent/70 text-white p-[20px] md:p-[30px] rounded-xl`}
@@ -67,7 +72,7 @@ const TableRank = ({ itemsPerPage }) => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
