@@ -1,33 +1,55 @@
-import imgHero from "../../assets/img/bg-hero.jpg";
-import { MdLeaderboard } from "react-icons/md";
-import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import HeroCard from "./shared/HeroCard";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+
+// image
+import newsImg from "../../assets/img/news.jpg";
+import globeImg from "../../assets/img/globe.jpg";
 
 const Hero = () => {
+  const dataSlides = [
+    {
+      image: globeImg,
+      headline: "Explore the World, Stay Updated.",
+      paragraph:
+        "Navigate through a world of data and uncover the stories behind the numbers. See how countries rank across different metrics.",
+      cta: "View Countries",
+      linkCta: "/countryrank",
+    },
+    {
+      image: newsImg,
+      headline: "Discover Everything, Read the Latest News.",
+      paragraph:
+        "Explore trending news articles and in-depth analysis from trusted sources. Stay ahead of the curve with real-time updates on global events.",
+      cta: "Read News",
+      linkCta: "/newsarticle",
+    },
+  ];
+
   return (
-    <div className="relative">
-      <div className="w-full">
-        <motion.img
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          src={imgHero}
-          alt="Image hero"
-          className="w-full h-[300px] md:h-[400px] object-cover bg-center bg-no-repeat"
-        />
-      </div>
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        viewport={{ once: true }}
-        className="absolute inset-0 bg-main-primary bg-opacity-50 flex justify-center items-center gap-3"
+    <div>
+      <Swiper
+        pagination={true}
+        modules={[Pagination]}
+        className="w-full h-max flex justify-center items-center"
       >
-        <MdLeaderboard className="text-main-accent text-[30px] md:text-[40px]" />
-        <h1 className="text-white font-alatsi text-[30px] md:text-[40px] font-semibold">
-          COUNTRY <span className="text-main-accent">RANK</span>
-        </h1>
-      </motion.div>
+        {dataSlides.map((data, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <HeroCard
+                image={data.image}
+                headline={data.headline}
+                paragraph={data.paragraph}
+                cta={data.cta}
+                linkCta={data.linkCta}
+              />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
     </div>
   );
 };

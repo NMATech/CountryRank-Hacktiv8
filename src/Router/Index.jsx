@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Index from "../Layout/Index";
 
-import Home from "../Pages/Home";
+import CountryRank from "../Pages/CountryRank";
 import Compare from "../Pages/Compare";
 import NewsArticle from "../Pages/NewsArticle";
+import Home from "../Pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/countryrank",
+        element: <CountryRank />,
       },
       {
         path: "/compare",
