@@ -9,7 +9,7 @@ const Hero = () => {
         <motion.img
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           src={imgHero}
           alt="Image hero"
@@ -19,7 +19,7 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.5 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
         viewport={{ once: true }}
         className="absolute inset-0 bg-main-primary bg-opacity-50 flex justify-center items-center gap-3"
       >

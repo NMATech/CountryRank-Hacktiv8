@@ -42,7 +42,7 @@ const TableRank = ({ itemsPerPage }) => {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: 2 }}
+      transition={{ delay: 1 }}
       viewport={{ once: true }}
       className={`absolute w-[95%] ${
         countries.length >= 10 ? "mt-[60em] md:mt-[37em]" : "mt-[23em]"
