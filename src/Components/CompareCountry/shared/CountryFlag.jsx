@@ -1,6 +1,14 @@
-const CountryFlag = ({ name, image }) => {
+import { motion } from "framer-motion";
+
+const CountryFlag = ({ name, image, direction }) => {
   return (
-    <div className="text-white w-max flex flex-col gap-3">
+    <motion.div
+      initial={{ opacity: 0, x: direction }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ delay: 1.2, duration: 0.3 }}
+      viewport={{ once: true }}
+      className="text-white w-max flex flex-col gap-3"
+    >
       <h1 className="font-alatsi text-[20px] md:text-[30px] text-center">
         {name || "Country"}
       </h1>
@@ -24,7 +32,7 @@ const CountryFlag = ({ name, image }) => {
           {name || ""}
         </a>
       </p>
-    </div>
+    </motion.div>
   );
 };
 

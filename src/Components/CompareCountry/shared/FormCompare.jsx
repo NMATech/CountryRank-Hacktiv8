@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CountryFlag from "./CountryFlag";
 import SelectForm from "./SelectForm";
+import { motion } from "framer-motion";
 
 const FormCompare = ({
   countryA,
@@ -79,36 +80,50 @@ const FormCompare = ({
         <CountryFlag
           name={countryA?.name?.common}
           image={countryA?.flags?.png}
+          direction={-100}
         />
         <CountryFlag
           name={countryB?.name?.common}
           image={countryB?.flags?.png}
+          direction={100}
         />
       </div>
       <div className="w-full flex flex-col justify-center gap-3 mt-[20px]">
-        <p className="text-white text-center text-xl">
+        <motion.p
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.3 }}
+          viewport={{ once: true }}
+          className="text-white text-center text-xl"
+        >
           Select other countries :{" "}
-        </p>
+        </motion.p>
         <div className="w-full flex justify-around">
           <SelectForm
             countries={countries}
             selectedOption={selectedOptionA}
             handleChange={handleChangeA}
+            direction={-100}
           />
           <SelectForm
             countries={countries}
             selectedOption={selectedOptionB}
             handleChange={handleChangeB}
+            direction={100}
           />
         </div>
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3, duration: 0.3 }}
+          viewport={{ once: true }}
           onClick={() => {
             setIsCompareClicked((prev) => !prev);
           }}
           className="w-full md:w-[20%] mx-auto bg-white text-[#333] rounded-xl py-2"
         >
           Compare
-        </button>
+        </motion.button>
       </div>
     </div>
   );

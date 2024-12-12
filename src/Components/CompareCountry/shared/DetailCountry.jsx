@@ -1,6 +1,14 @@
-const DetailCountry = ({ country }) => {
+import { motion } from "framer-motion";
+
+const DetailCountry = ({ country, direction }) => {
   return (
-    <div className="w-full md:w-[50%] bg-main-accent flex flex-col p-4 rounded-lg shadow-md">
+    <motion.div
+      initial={{ opacity: 0, x: direction }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="w-full md:w-[50%] bg-main-accent flex flex-col p-4 rounded-lg shadow-md"
+    >
       <h1 className="text-[20px] md:text-[30px] text-modern-text font-alatsi text-center">
         {country?.name?.common || "Country"}
       </h1>
@@ -45,7 +53,7 @@ const DetailCountry = ({ country }) => {
           />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
