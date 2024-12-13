@@ -20,7 +20,11 @@ const BelowCard = ({ data }) => {
     <div className="flex gap-3 overflow-x-auto">
       {data && data.length > 0 ? (
         wrappedDataForLaptop.map((news, index) => (
-          <CardNewsBelow key={index} news={news} />
+          <CardNewsBelow
+            styling={"w-[80%] sm:w-[60%] md:w-[48%] lg:w-[49%]"}
+            key={index}
+            news={news}
+          />
         ))
       ) : (
         <p>Loading!</p>

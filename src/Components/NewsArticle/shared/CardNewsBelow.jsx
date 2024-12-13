@@ -1,4 +1,4 @@
-const CardNewsBelow = ({ news }) => {
+const CardNewsBelow = ({ news, styling }) => {
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.slice(0, maxLength) + "...";
@@ -7,7 +7,7 @@ const CardNewsBelow = ({ news }) => {
   };
 
   return (
-    <div className="flex-shrink-0 w-[80%] sm:w-[60%] md:w-[48%] lg:w-[49%] flex flex-col gap-3 text-white">
+    <div className={`flex-shrink-0 ${styling} flex flex-col gap-3 text-white`}>
       {/* Gambar dengan label */}
       <div className="relative">
         <img
