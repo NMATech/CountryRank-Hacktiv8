@@ -12,6 +12,7 @@ const SectionNews = () => {
   const newsSliceBottom = newsData.slice(4, 11);
   const [widthBrowser, setWidthBrowser] = useState(window.innerWidth);
 
+  // Listener resize
   useEffect(() => {
     const handleResize = () => setWidthBrowser(window.innerWidth);
 
