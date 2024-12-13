@@ -3,6 +3,7 @@ import SectionNews from "../Components/NewsArticle/SectionNews";
 import { RotatingLines } from "react-loader-spinner";
 import { useEffect } from "react";
 import displayPopularNews from "../Store/actions/NewsActions";
+import TopWriters from "../Components/NewsArticle/TopWriters";
 
 const NewsArticle = () => {
   const news = useSelector((state) => state.newsArticle.popularNews);
@@ -33,6 +34,8 @@ const NewsArticle = () => {
             <h1 className="text-white text-[30px]">Popular News</h1>
           </div>
           <SectionNews />
+
+          <TopWriters />
         </>
       )}
     </div>
