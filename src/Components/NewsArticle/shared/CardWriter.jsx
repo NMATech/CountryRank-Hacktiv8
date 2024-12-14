@@ -7,6 +7,7 @@ const CardWriter = ({ name, paragraph, image, profile, durationDelay }) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: durationDelay, duration: 0.5 }}
       viewport={{ once: true }}
+      whileHover={{ scale: 1.1 }}
       className={`w-full md:w-[30%] border border-white flex flex-col items-center mt-[20px] p-3 rounded-xl shadow-2xl`}
     >
       <div>
