@@ -12,6 +12,11 @@ const SectionNews = () => {
   const newsSliceBottom = newsData.slice(4, 11);
   const [widthBrowser, setWidthBrowser] = useState(window.innerWidth);
 
+  // Handle delay for animation
+  const handleDelay = (index) => {
+    return index * 0.3;
+  };
+
   // Listener resize
   useEffect(() => {
     const handleResize = () => setWidthBrowser(window.innerWidth);
@@ -43,7 +48,13 @@ const SectionNews = () => {
       {/* Card news side only shows for laptop view */}
       <div className="hidden lg:flex flex-col gap-3">
         {newsSliceBottom.map((data, index) => {
-          return <CardNews data={data} key={index} />;
+          return (
+            <CardNews
+              data={data}
+              key={index}
+              durationDelay={handleDelay(index)}
+            />
+          );
         })}
       </div>
     </div>

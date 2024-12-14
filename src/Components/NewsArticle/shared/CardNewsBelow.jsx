@@ -1,4 +1,6 @@
-const CardNewsBelow = ({ news, styling }) => {
+import { motion } from "framer-motion";
+
+const CardNewsBelow = ({ news, styling, durationDelay }) => {
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
       return text.slice(0, maxLength) + "...";
@@ -7,7 +9,13 @@ const CardNewsBelow = ({ news, styling }) => {
   };
 
   return (
-    <div className={`flex-shrink-0 ${styling} flex flex-col gap-3 text-white`}>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: durationDelay, duration: 0.5 }}
+      viewport={{ once: true }}
+      className={`flex-shrink-0 ${styling} flex flex-col gap-3 text-white`}
+    >
       {/* Gambar dengan label */}
       <div className="relative">
         <img
@@ -35,7 +43,7 @@ const CardNewsBelow = ({ news, styling }) => {
           <span>{new Date(news?.pub_date).toLocaleDateString()}</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -12,6 +12,7 @@ import christiane from "../assets/img/christiane_amanpour.jpg";
 import malcolm from "../assets/img/malcolm.jpg";
 import david from "../assets/img/david.jpg";
 import anne from "../assets/img/anne.jpg";
+import { motion } from "framer-motion";
 
 const NewsArticle = () => {
   const news = useSelector((state) => state.newsArticle.popularNews);
@@ -89,7 +90,15 @@ const NewsArticle = () => {
       ) : (
         <>
           <div className="px-[30px] py-5">
-            <h1 className="text-white text-[30px]">Popular News</h1>
+            <motion.h1
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-white text-[30px]"
+            >
+              Popular News
+            </motion.h1>
           </div>
           <SectionNews />
 

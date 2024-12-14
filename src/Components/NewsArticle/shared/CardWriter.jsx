@@ -1,6 +1,12 @@
-const CardWriter = ({ name, paragraph, image, profile, alignment }) => {
+import { motion } from "framer-motion";
+
+const CardWriter = ({ name, paragraph, image, profile, durationDelay }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: durationDelay, duration: 0.5 }}
+      viewport={{ once: true }}
       className={`w-full md:w-[30%] border border-white flex flex-col items-center mt-[20px] p-3 rounded-xl shadow-2xl`}
     >
       <div>
@@ -17,7 +23,7 @@ const CardWriter = ({ name, paragraph, image, profile, alignment }) => {
           <a href={profile}>See Profile</a>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
