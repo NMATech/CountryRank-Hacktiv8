@@ -6,6 +6,7 @@ import pakistan from "../../assets/img/pakistan.jpg";
 
 import CountryInfo from "./shared/CountryInfo";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const FeaturedCountries = () => {
   const [selectedCountry, setSelectedCountry] = useState("China");
@@ -48,7 +49,15 @@ const FeaturedCountries = () => {
 
   return (
     <div className="w-[95%] mx-auto text-white mt-[20px] p-3">
-      <h1 className="text-3xl text-center mb-5">Featured Countries</h1>
+      <motion.h1
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-3xl text-center mb-5"
+      >
+        Featured Countries
+      </motion.h1>
       <CountryInfo
         china={china}
         countries={topCountries}

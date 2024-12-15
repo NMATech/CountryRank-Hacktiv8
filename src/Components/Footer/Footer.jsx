@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-main-primary w-full text-white px-[30px] md:px-[50px] pt-[30px] md:pt-[50px] pb-[20px]">
       <section className="flex flex-col md:flex-row">
-        <div className="w-full md:w-[40%] flex flex-col justify-center items-center md:justify-start md:items-start gap-3">
+        <div className="w-full md:w-[40%] flex flex-col justify-center items-center md:justify-start md:items-start gap-3 mb-5 md:mb-0">
           <motion.img
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

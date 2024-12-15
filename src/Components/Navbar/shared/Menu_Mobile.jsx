@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Menu_Mobile = () => {
   const menus = [
     {
@@ -20,7 +22,13 @@ const Menu_Mobile = () => {
 
   return (
     <nav>
-      <ul className="absolute bg-main-primary w-[200px] h-max flex flex-col items-center top-[3.5em] right-0 gap-3 text-xl font-thin p-3 easy-in-out z-50">
+      <motion.ul
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="absolute bg-main-primary w-[200px] h-max flex flex-col items-center top-[3.5em] right-0 gap-3 text-xl font-thin p-3 easy-in-out z-50"
+      >
         {menus.map((menu, index) => {
           return (
             <li
@@ -31,7 +39,7 @@ const Menu_Mobile = () => {
             </li>
           );
         })}
-      </ul>
+      </motion.ul>
     </nav>
   );
 };

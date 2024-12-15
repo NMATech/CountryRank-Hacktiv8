@@ -4,10 +4,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const SliderCountries = ({ countries, handleSelectedCountry }) => {
   const [widthBrowser, setWidthBrowser] = useState(window.innerWidth);
 
+  // handle animation
+  const handleDelay = (index) => {
+    return index * 0.3;
+  };
+
+  // listener resize
   useEffect(() => {
     const handleResize = () => setWidthBrowser(window.innerWidth);
 
@@ -31,7 +38,13 @@ const SliderCountries = ({ countries, handleSelectedCountry }) => {
           return (
             <SwiperSlide key={index}>
               <button onClick={() => handleSelectedCountry(country.name)}>
-                <div className="relative w-[150px] lg:w-[180px]">
+                <motion.div
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: handleDelay(index), duration: 0.3 }}
+                  viewport={{ once: true }}
+                  className="relative w-[150px] lg:w-[180px]"
+                >
                   <img
                     src={country.image}
                     alt={`image ${country.name}`}
@@ -40,7 +53,7 @@ const SliderCountries = ({ countries, handleSelectedCountry }) => {
                   <div className="absolute inset-0 w-max h-max bg-main-accent px-4 py-1 rounded-full m-2">
                     <p>{country.name}</p>
                   </div>
-                </div>
+                </motion.div>
               </button>
             </SwiperSlide>
           );

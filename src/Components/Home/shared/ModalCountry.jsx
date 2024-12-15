@@ -1,9 +1,16 @@
 import { IoClose } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 const ModalCountry = ({ setIsMapClicked, country }) => {
   return (
     <div className="w-full fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="w-[250px] md:w-[355px] bg-white p-2 rounded-xl">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="w-[250px] md:w-[355px] bg-white p-2 rounded-xl"
+      >
         <div className="w-full flex justify-end items-center">
           <button onClick={() => setIsMapClicked((prev) => !prev)}>
             <IoClose className="text-[30px]" />
@@ -49,7 +56,7 @@ const ModalCountry = ({ setIsMapClicked, country }) => {
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

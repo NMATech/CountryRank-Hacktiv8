@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Navlink = () => {
   const menus = [
     {
@@ -20,7 +22,13 @@ const Navlink = () => {
 
   return (
     <nav>
-      <ul className="w-max hidden md:flex items-center gap-3 text-xl font-thin">
+      <motion.ul
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="w-max hidden md:flex items-center gap-3 text-xl font-thin"
+      >
         {menus.map((menu, index) => {
           return (
             <li
@@ -31,7 +39,7 @@ const Navlink = () => {
             </li>
           );
         })}
-      </ul>
+      </motion.ul>
     </nav>
   );
 };
