@@ -2,14 +2,17 @@ import { useState } from "react";
 import BelowCard from "./shared/BelowCard";
 import CardNews from "./shared/CardNews";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import SliderNews from "./shared/SliderNews";
+import displayPopularNews from "../../Store/actions/NewsActions";
 
 const SectionNews = () => {
   const newsData = useSelector((state) => state.newsArticle.popularNews);
   const latestNews = useSelector((state) => state.newsArticle.latestNews);
-  const newsSliceSlider = newsData.slice(0, 3);
-  const newsSliceBottom = newsData.slice(4, 11);
+  const newsSliceSlider = newsData.slice(0, 2);
+  const newsSliceBottom = newsData.slice(2, 4);
+  const newsSliceSide = newsData.slice(4, 10);
+  const dispatch = useDispatch();
   const [widthBrowser, setWidthBrowser] = useState(window.innerWidth);
 
   // Handle delay for animation
@@ -26,6 +29,10 @@ const SectionNews = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  useEffect(() => {
+    dispatch(displayPopularNews("Peace", "ADD_TO_POPULARNEWS"));
   }, []);
 
   return (
@@ -47,7 +54,7 @@ const SectionNews = () => {
 
       {/* Card news side only shows for laptop view */}
       <div className="hidden lg:flex flex-col gap-3">
-        {newsSliceBottom.map((data, index) => {
+        {newsSliceSide.map((data, index) => {
           return (
             <CardNews
               data={data}

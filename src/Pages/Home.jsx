@@ -16,7 +16,7 @@ const Home = () => {
   // Fetching data news for top news section
   useEffect(() => {
     dispatch(displayPopularNews("Peace", "ADD_TO_POPULARNEWS"));
-  });
+  }, []);
 
   return (
     <div className="relative pb-[20px]">
