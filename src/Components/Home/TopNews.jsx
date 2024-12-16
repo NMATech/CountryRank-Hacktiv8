@@ -5,12 +5,7 @@ import CardNewsBelow from "../NewsArticle/shared/CardNewsBelow";
 
 const TopNews = () => {
   const topNews = useSelector((state) => state.newsArticle.popularNews);
-  const dispatch = useDispatch();
   const wrappedNews = topNews.slice(1, 4);
-
-  useEffect(() => {
-    dispatch(displayPopularNews("Peace", "ADD_TO_POPULARNEWS"));
-  });
 
   return (
     <div className="w-[95%] mx-auto text-white">
