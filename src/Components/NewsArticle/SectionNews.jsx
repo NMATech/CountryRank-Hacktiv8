@@ -20,7 +20,6 @@ const SectionNews = () => {
     return index * 0.3;
   };
 
-  console.log("API Key:", import.meta.env.VITE_NEWS_API_KEY);
 
   // Listener resize
   useEffect(() => {
