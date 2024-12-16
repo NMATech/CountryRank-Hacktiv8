@@ -14,31 +14,31 @@ const FeaturedCountries = () => {
     {
       name: "China",
       paragraph:
-        "China adalah negara dengan populasi terbesar di dunia dan salah satu peradaban tertua yang masih bertahan. Terkenal dengan Tembok Besar, budaya teh, dan inovasi modern, China menjadi kekuatan ekonomi global yang memimpin di berbagai sektor teknologi dan manufaktur, sambil tetap mempertahankan tradisi budaya yang kaya.",
+        "China is the world's most populous country and one of the oldest surviving civilizations. Famous for the Great Wall, tea culture, and modern innovation, China is a global economic powerhouse leading the way in various technology and manufacturing sectors, while still maintaining rich cultural traditions.",
       image: china,
     },
     {
       name: "India",
       paragraph:
-        "India adalah negara beragam budaya yang dikenal dengan sejarahnya yang kaya, seperti Taj Mahal dan festival warna Holi. Dengan populasi besar dan ekonomi yang berkembang pesat, India memainkan peran penting dalam teknologi global, seni, dan kuliner, menawarkan pengalaman yang memadukan tradisi kuno dan modernitas.",
+        "India is a culturally diverse country known for its rich history, such as the Taj Mahal and the Holi festival of colors. With a large population and booming economy, India plays an important role in global technology, art and cuisine, offering experiences that blend ancient traditions and modernity.",
       image: india,
     },
     {
       name: "United States",
       paragraph:
-        "Amerika Serikat adalah pusat inovasi global, terkenal dengan ekonomi yang kuat, kota-kota seperti New York dan Los Angeles, serta pengaruh budaya popnya. Negara ini memiliki lanskap yang beragam, dari Grand Canyon hingga Silicon Valley, menjadikannya destinasi wisata dan inovasi teknologi terkemuka di dunia.",
+        "The United States is a global center of innovation, known for its strong economy, cities like New York and Los Angeles, and pop culture influence. The country has a diverse landscape, from the Grand Canyon to Silicon Valley, making it a world-leading destination for tourism and technological innovation.",
       image: usa,
     },
     {
       name: "Indonesia",
       paragraph:
-        "Indonesia adalah negara kepulauan terbesar di dunia, terkenal dengan keindahan alamnya seperti Bali dan Raja Ampat. Dengan budaya yang beragam dan tradisi yang kaya, Indonesia juga memiliki ekonomi yang tumbuh pesat, menjadikannya salah satu pemain penting di kawasan Asia Tenggara.",
+        "Indonesia is the largest archipelago in the world, famous for its natural beauty such as Bali and Raja Ampat. With a diverse culture and rich traditions, Indonesia also has a rapidly growing economy, making it one of the important players in the Southeast Asian region.",
       image: indonesia,
     },
     {
       name: "Pakistan",
       paragraph:
-        "Pakistan adalah negara dengan warisan budaya yang mendalam, mulai dari situs kuno Mohenjo-Daro hingga pegunungan Karakoram. Dikenal dengan keramahan penduduknya dan kelezatan kulinernya, Pakistan juga terus berkembang di bidang teknologi dan infrastruktur, memperkuat posisinya di kancah regional dan global.",
+        "Pakistan is a country with a deep cultural heritage, from the ancient sites of Mohenjo-Daro to the mountains of Karakoram. Known for the hospitality of its people and the delicacy of its cuisine, Pakistan also continues to develop in the fields of technology and infrastructure, strengthening its position on the regional and global scene.",
       image: pakistan,
     },
   ];
