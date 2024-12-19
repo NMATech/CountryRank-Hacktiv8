@@ -1,14 +1,26 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Hero from "../Components/CountryRank/Hero";
 import TableRank from "../Components/CountryRank/TableRank";
+import actions from "../Store/actions/CountryRankActions";
 import { RotatingLines } from "react-loader-spinner";
+import { useEffect } from "react";
 
 const CountryRank = () => {
   const countries = useSelector((state) => state.countryRank.data);
+  const dispatch = useDispatch();
+
+  // fetching data
+  useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(actions.displayAll("population"));
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
-      {countries ? (
+      {countries.length > 1 ? (
         <>
           <Hero />
 

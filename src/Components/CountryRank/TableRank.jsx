@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 
 const TableRank = ({ itemsPerPage }) => {
   const [innerWidthBrowser, setInnerWidthBrowser] = useState(window.innerWidth);
-  const dispatch = useDispatch();
   const countries = useSelector((state) => state.countryRank.data); // data countries
   const [itemOffSet, setItemOffSet] = useState(0);
   const endOffSet = itemOffSet + itemsPerPage;
@@ -20,15 +19,6 @@ const TableRank = ({ itemsPerPage }) => {
     : 0;
 
   // console.log(countries); aktifkan ini untuk melihat data
-
-  // fetching data
-  useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(actions.displayAll("population"));
-    };
-
-    fetchData();
-  }, []);
 
   // listener resize
   useEffect(() => {
