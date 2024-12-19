@@ -35,7 +35,7 @@ const Menu_Mobile = () => {
               key={index}
               className="hover:border-b-2 hover:border-main-higlight easy-in-out"
             >
-              <a href="">{menu.title}</a>
+              <a href={menu.link}>{menu.title}</a>
             </li>
           );
         })}

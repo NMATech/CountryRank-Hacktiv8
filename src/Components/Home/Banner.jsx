@@ -41,7 +41,7 @@ const Banner = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.3 }}
           viewport={{ once: true }}
-          className="bg-main-accent px-4 py-1 rounded-lg"
+          className="bg-main-accent hover:bg-main-accent/80 px-4 py-1 rounded-lg"
         >
           <a href="/countryrank">Explore More</a>
         </motion.button>

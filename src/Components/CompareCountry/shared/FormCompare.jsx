@@ -120,7 +120,7 @@ const FormCompare = ({
           onClick={() => {
             setIsCompareClicked((prev) => !prev);
           }}
-          className="w-full md:w-[20%] mx-auto bg-white text-[#333] rounded-xl py-2"
+          className="w-full md:w-[20%] mx-auto bg-white hover:bg-white/80 text-[#333] rounded-xl py-2"
         >
           Compare
         </motion.button>

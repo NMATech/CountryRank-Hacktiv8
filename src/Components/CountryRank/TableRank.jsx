@@ -9,7 +9,7 @@ import MobileTableRank from "./shared/MobileTableRank";
 import { motion } from "framer-motion";
 
 const TableRank = ({ itemsPerPage }) => {
-  const innerWidthBrowser = window.innerWidth;
+  const [innerWidthBrowser, setInnerWidthBrowser] = useState(window.innerWidth);
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countryRank.data); // data countries
   const [itemOffSet, setItemOffSet] = useState(0);
@@ -21,6 +21,7 @@ const TableRank = ({ itemsPerPage }) => {
 
   // console.log(countries); aktifkan ini untuk melihat data
 
+  // fetching data
   useEffect(() => {
     const fetchData = async () => {
       await dispatch(actions.displayAll("population"));
@@ -28,6 +29,17 @@ const TableRank = ({ itemsPerPage }) => {
 
     fetchData();
   }, []);
+
+  // listener resize
+  useEffect(() => {
+    const handleResize = () => setInnerWidthBrowser(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   // handle untuk pindah pagenation
   const handlePageClick = (event) => {

@@ -20,7 +20,7 @@ const CardWriter = ({ name, paragraph, image, profile, durationDelay }) => {
       <div className="flex flex-col justify-center gap-2 text-white p-3">
         <h1 className="text-[30px]">{name}</h1>
         <p className="w-full">{paragraph}</p>
-        <button className="w-max bg-main-accent text-white px-4 py-2 rounded-xl">
+        <button className="w-max bg-main-accent hover:bg-main-accent/80 text-white px-4 py-2 rounded-xl">
           <a href={profile}>See Profile</a>
         </button>
       </div>

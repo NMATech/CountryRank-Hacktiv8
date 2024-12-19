@@ -38,7 +38,7 @@ const HeroCard = ({ image, headline, paragraph, cta, linkCta }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.3 }}
           viewport={{ once: true }}
-          className="bg-main-accent px-8 py-1 rounded-lg"
+          className="bg-main-accent hover:bg-main-accent/80 px-8 py-1 rounded-lg"
         >
           <a href={linkCta} className="text-md md:text-lg">
             {cta}
